@@ -19,10 +19,10 @@ async function fetchDogePrice() {
     // Use the Coingecko API to fetch the latest DOGE/USD price
     // Docs: https://www.coingecko.com/en/api
     const response = await axios.get(
-      "https://api.binance.com/api/v3/ticker/price?symbol=DOGEUSDT"
+      "https://api.coinbase.com/v2/prices/DOGE-USD/spot"
     );
 
-    const dogePrice = response.data.price;
+    const dogePrice = response.data.amount;
     console.log("Fetched DOGE/USD Price:", dogePrice);
 
     // Convert the price from a string to a BigNumber
@@ -55,7 +55,7 @@ async function updateDogePrice(req, res) {
       "Updated DOGE/USD Price in Contract:",
       ethers.formatUnits(updatedPrice, 18)
     );
-    res.json({
+    return res.json({
         message: "Updated DOGE/USD Price in Contract:",
         updatedPrice: ethers.formatUnits(updatedPrice, 18),
     });
