@@ -19,10 +19,10 @@ async function fetchDogePrice() {
     // Use the Coingecko API to fetch the latest DOGE/USD price
     // Docs: https://www.coingecko.com/en/api
     const response = await axios.get(
-      "https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd"
+      "https://api.binance.com/api/v3/ticker/price?symbol=DOGEUSDT"
     );
 
-    const dogePrice = response.data.dogecoin.usd;
+    const dogePrice = response.data.price;
     console.log("Fetched DOGE/USD Price:", dogePrice);
 
     // Convert the price from a string to a BigNumber
