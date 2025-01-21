@@ -22,7 +22,7 @@ async function fetchDogePrice() {
       "https://api.coinbase.com/v2/prices/DOGE-USD/spot"
     );
 
-    const dogePrice = response.data.amount;
+    const dogePrice = response.data.data.amount;
     console.log("Fetched DOGE/USD Price:", dogePrice);
 
     // Convert the price from a string to a BigNumber
