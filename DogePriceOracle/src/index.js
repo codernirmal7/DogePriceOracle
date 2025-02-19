@@ -9,10 +9,10 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-cron.schedule("0 * * * *", async () => {
+cron.schedule("0 0 * * *", async () => {
   try {
     console.log("Hitting /update endpoint...");
-    const response = await axios.get("https://dogepriceoracle.onrender.com/price/update");
+    const response = await axios.get("http://localhost:4000/price/update");
     console.log("Response from /update:", response.data);
   } catch (error) {
     console.error("Error hitting /update endpoint:", error.message);
